@@ -1,0 +1,38 @@
+# Maven/Gradle build output
+target/
+build/
+
+# IDE settings (IntelliJ, Eclipse, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.springBeans
+.sts4-cache
+
+# Mac, Windows, Linux system files
+.DS_Store
+Thumbs.db
+
+# Logs and OS-specific files
+*.log
+
+# mvnw wrappers
+.mvn/
+mvnw
+mvnw.cmd
+HELP.md
+
+# NetBeans config
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Visual Studio Code
+.vscode/
+.env

@@ -1,0 +1,37 @@
+services:
+  pg_bd:
+    container_name: postgres_bd
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT}:${DB_DOCKER_PORT}"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    container_name: redis_cache
+    image: redis:7.2
+    restart: always
+    ports:
+      - "6379:6379"
+    command: [ "redis-server", "--save", "20", "1", "--loglevel", "warning" ]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  db:
+  redis_data:

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="003-insert-admin-user" author="your-name">
+        <insert tableName="users">
+            <column name="id" value="a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"/>
+            <column name="first_name" value="Admin"/>
+            <column name="last_name" value="System"/>
+            <column name="email" value="admin@example.com"/>
+            <column name="password" value="$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07xd00DMxs.AQubh4a"/>
+            <column name="is_enabled" valueBoolean="true"/>
+            <column name="is_account_locked" valueBoolean="false"/>
+            <column name="is_credentials_expered" valueBoolean="false"/>
+            <column name="created_by" value="SYSTEM"/>
+            <column name="created_date" valueDate="2025-01-01T00:00:00"/>
+        </insert>
+
+        <insert tableName="users_roles">
+            <column name="users_id" value="a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"/>
+            <column name="roles_id" valueNumeric="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

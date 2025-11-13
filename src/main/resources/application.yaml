@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: TestTaskEffectiveMobile
+
+  profiles:
+    active: dev
+    group:
+      dev: dev
+      prod: prod
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
